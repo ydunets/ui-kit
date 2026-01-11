@@ -152,6 +152,39 @@ The component uses a combination of Tailwind utilities and CSS Modules. To custo
 - Component styles: Edit `src/shared/ui/testimonial-card/TestimonialCard.module.css`
 - Tailwind config: Edit `tailwind.config.js`
 
+## 🚀 Deployment
+
+This project is configured for deployment on [Vercel](https://vercel.com).
+
+### Deploy to Vercel
+
+#### Option 1: GitHub Integration (Recommended)
+1. Go to [vercel.com](https://vercel.com) and sign in with your GitHub account
+2. Click "Add New Project" and import the repository `ydunets/ui-kit`
+3. Vercel will auto-detect the Vite configuration from `vercel.json`
+4. Click "Deploy"
+
+Vercel will automatically:
+- Build the project using `npm run build`
+- Deploy to a production URL
+- Set up automatic deployments on every push to `main` branch
+- Create preview deployments for pull requests
+
+#### Option 2: Vercel CLI
+```bash
+# Install Vercel CLI globally
+npm i -g vercel
+
+# Deploy
+vercel
+```
+
+The project includes `vercel.json` with the following configuration:
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Framework**: Vite
+- **SPA Routing**: Configured for client-side routing
+
 ## 📄 License
 
 This project is private and for educational purposes.
