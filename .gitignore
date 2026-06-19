@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Figma exports / design source assets (not part of the app)
+assets/
+code-samples/
