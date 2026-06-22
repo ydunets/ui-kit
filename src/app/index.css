@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* Shared keyboard-focus affordance. The ring follows the element's own
+     border-radius, so it works on pills, circles and inputs alike. */
+  .focus-ring {
+    @apply outline-none ring-2 ring-brand ring-offset-2;
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

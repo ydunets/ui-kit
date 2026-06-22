@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+server/.agents/skills
 
 # Editor directories and files
 .vscode/*
@@ -26,3 +27,5 @@ dist-ssr
 # Figma exports / design source assets (not part of the app)
 assets/
 code-samples/
+skills-lock.json
+.agents/skills
