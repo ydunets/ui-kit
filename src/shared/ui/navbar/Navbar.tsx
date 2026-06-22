@@ -1,54 +1,44 @@
-import { FC, useId, useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { cx } from '@/shared/lib/cx';
 import { useMediaQuery } from '@/shared/lib/useMediaQuery';
 import styles from './Navbar.module.css';
 import { CloseIcon, MenuIcon, ShoppingBagIcon, StyleNestLogo } from './icons';
 
-export interface NavbarLink {
+export type TNavbarLink = {
   label: string;
   href: string;
-}
+};
 
-export interface NavbarProps {
-  /** Navigation links shown inline on desktop and stacked in the mobile drawer. */
-  links?: NavbarLink[];
-  /** Destination for the logo. */
+export type TNavbarProps = {
+  links?: TNavbarLink[];
   brandHref?: string;
-  /** Accessible label for the logo link. */
   brandLabel?: string;
-  /** Destination for the shopping bag / cart action. */
   cartHref?: string;
-  /** Accessible label for the cart action. */
   cartLabel?: string;
-}
+};
 
-const DEFAULT_LINKS: NavbarLink[] = [
+const DEFAULT_LINKS: TNavbarLink[] = [
   { label: 'Shop all', href: '#' },
   { label: 'Latest arrivals', href: '#' },
 ];
 
-export const Navbar: FC<NavbarProps> = ({
+export const Navbar = ({
   links = DEFAULT_LINKS,
   brandHref = '#',
   brandLabel = 'StyleNest home',
   cartHref = '#',
   cartLabel = 'Shopping bag',
-}) => {
+}: TNavbarProps) => {
   const drawerId = useId();
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  // `open` mirrors the native dialog and is changed only from events (no sync
-  // Effect). The drawer is unmounted on desktop, which closes it; the render-time
-  // adjustment keeps `open` honest so aria-expanded never lies after a resize.
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 1024px)');
+  // Drawer unmounts on desktop (which closes it); reset so aria-expanded can't lie.
   if (open && isDesktop) {
     setOpen(false);
   }
 
-  // Open/close are user interactions → driven imperatively from handlers.
-  // close() routes through the dialog so ESC, the close button, backdrop and
-  // link clicks all converge on the same `onClose` → setOpen(false).
   const openDrawer = () => {
     dialogRef.current?.showModal();
     setOpen(true);
@@ -95,13 +85,6 @@ export const Navbar: FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/*
-        Native modal dialog. showModal() (in openDrawer) gives us the focus trap,
-        ESC-to-close, focus return to the trigger and an inert background. Rendered
-        only below `lg` — unmounting on desktop closes any open drawer. `onClose`
-        syncs React state on every close path (ESC included); the outer onClick
-        closes on backdrop clicks (target is the <dialog> box itself).
-      */}
       {!isDesktop && (
         <dialog
           id={drawerId}

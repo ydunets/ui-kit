@@ -38,7 +38,7 @@
 }
 
 .link {
-  @apply font-medium text-base leading-6 text-[#525252] transition-colors hover:text-[#171717];
+  @apply font-medium text-base leading-6 text-muted transition-colors hover:text-ink;
 }
 
 .actions {
@@ -46,7 +46,7 @@
 }
 
 .iconButton {
-  @apply inline-flex cursor-pointer items-center justify-center rounded border-0 bg-transparent p-1 text-[#525252] transition-colors hover:text-[#171717];
+  @apply inline-flex cursor-pointer items-center justify-center rounded border-0 bg-transparent p-1 text-muted transition-colors hover:text-ink;
 }
 
 .menuButton {
@@ -62,7 +62,7 @@
 .iconButton:focus-visible,
 .brand:focus-visible,
 .drawerLink:focus-visible {
-  @apply outline-none ring-2 ring-[#6366f1] ring-offset-2;
+  @apply focus-ring;
 }
 
 /*
@@ -135,5 +135,5 @@
 }
 
 .drawerLink {
-  @apply rounded text-xl leading-7 text-[#171717] transition-colors hover:text-[#6366f1];
+  @apply rounded text-xl leading-7 text-ink transition-colors hover:text-brand;
 }

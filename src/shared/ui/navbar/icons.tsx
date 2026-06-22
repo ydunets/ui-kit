@@ -1,10 +1,6 @@
-import { FC, SVGProps } from 'react';
+import { SVGProps } from 'react';
 
-/**
- * StyleNest brand logo. Colors are baked into the artwork
- * (indigo mark + near-black wordmark), so size it via `className`/height only.
- */
-export const StyleNestLogo: FC<SVGProps<SVGSVGElement>> = (props) => (
+export const StyleNestLogo = (props: SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 105 32"
     fill="none"
@@ -25,8 +21,7 @@ export const StyleNestLogo: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-/** Shopping bag icon (Lucide-style), inherits color via `currentColor`. */
-export const ShoppingBagIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+export const ShoppingBagIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -44,8 +39,7 @@ export const ShoppingBagIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-/** Hamburger / menu icon (three bars). */
-export const MenuIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+export const MenuIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -62,8 +56,7 @@ export const MenuIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-/** Close (X) icon used in the mobile drawer header. */
-export const CloseIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+export const CloseIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
