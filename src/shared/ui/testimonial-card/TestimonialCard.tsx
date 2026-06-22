@@ -1,21 +1,19 @@
-import { FC, useId } from 'react';
+import { useId } from 'react';
 import styles from './TestimonialCard.module.css';
 
-export interface TestimonialCardProps {
+export type TTestimonialCardProps = {
   authorName: string;
   authorUsername: string;
   authorImage: string;
   testimonialText: string;
-}
+};
 
-export const TestimonialCard: FC<TestimonialCardProps> = ({
+export const TestimonialCard = ({
   authorName,
   authorUsername,
   authorImage,
   testimonialText,
-}) => {
-  // useId() ensures unique IDs when multiple TestimonialCard instances are rendered
-  // Each card instance gets a unique base ID, preventing ID collisions
+}: TTestimonialCardProps) => {
   const cardId = useId();
   const authorId = `${cardId}-author`;
   const testimonialId = `${cardId}-testimonial`;
