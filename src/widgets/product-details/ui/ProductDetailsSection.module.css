@@ -1,0 +1,7 @@
+.status {
+  @apply mx-auto w-full max-w-[1120px] rounded-2xl bg-white p-10 text-center text-base text-muted shadow-sm;
+}
+
+.error {
+  @apply mx-auto w-full max-w-[1120px] rounded-2xl bg-white p-10 text-center text-base text-danger shadow-sm;
+}
